@@ -5,14 +5,14 @@ module.exports = function(app){
   	var mysql = require('mysql');
 
     var connection = mysql.createConnection({
-      host : 'localhost',
-      user : 'root',
-      password : 'usbw',
+      host : 'cursonode.mysql.dbaas.com.br',
+      user : 'cursonode',
+      password : 'motopartes2018',
       database : 'cursonode'
     });
 
     connection.query('select * from livros', function(err, results){
-        res.send(results);
+      res.render('produtos/lista',{ lista : results })
     });
 
     connection.end();
