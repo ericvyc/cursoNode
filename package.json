@@ -1,0 +1,15 @@
+{
+  "name": "cursonode",
+  "version": "1.0.0",
+  "description": "Curso node js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Vilar Yankous Castanheira",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
