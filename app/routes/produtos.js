@@ -1,8 +1,21 @@
 module.exports = function(app){
 
   app.get('/produtos', function(req, res){
-  	//res.send("<html><body><h1>Listagem de produtos</h1></body></html>");
-  	res.render("produtos/lista");
+
+  	var mysql = require('mysql');
+
+    var connection = mysql.createConnection({
+      host : 'localhost',
+      user : 'root',
+      password : 'usbw',
+      database : 'cursonode'
+    });
+
+    connection.query('select * from livros', function(err, results){
+        res.send(results);
+    });
+
+    connection.end();
   });
 
 }
