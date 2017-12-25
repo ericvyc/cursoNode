@@ -3,7 +3,7 @@ function ProdutosDAO(conn) {
 }
 
 ProdutosDAO.prototype.lista = function (callback){
-  this._conn.query('select * from livros', callback);
+  this._conn.query('select * from livros order by id desc', callback);
 }
 
 ProdutosDAO.prototype.salvar = function (produto, callback){

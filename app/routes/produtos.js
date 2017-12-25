@@ -18,7 +18,7 @@ var listaProdutos = function(req, res){
     res.render('produtos/form');
   });
 
-  app.post('/produtos/salvar', function(req, res){
+  app.post('/produtos', function(req, res){
 
     var produto = req.body;
     var connection = app.infra.connectionFactory();
