@@ -4,6 +4,9 @@ var express = require('express');
 //Express auto-load
 var load = require('express-load');
 
+//Load body-parser
+var bodyParser = require('body-parser');
+
 module.exports = function() {
 
 	//Start express
@@ -14,6 +17,9 @@ module.exports = function() {
 
 	//Set views folder
 	app.set('views', './app/views');
+
+	//Configure body-parser
+	app.use(bodyParser.urlencoded({ extended : true }));
 
 	//Load routes in app var
 	load('routes', {cwd : 'app'})
