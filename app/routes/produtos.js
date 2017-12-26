@@ -18,13 +18,14 @@ module.exports = function(app){
           res.send('results');
         }
       });
+
     });
 
     connection.end();
   });
 
   app.get('/produtos/form', function(req, res){
-    res.render('produtos/form', {errosValidacao : {}});
+    res.render('produtos/form', {errosValidacao : {}, produto : {}});
   });
 
   app.post('/produtos', function(req, res){
@@ -37,7 +38,19 @@ module.exports = function(app){
     var erros = req.validationErrors();
 
     if(erros){
-      res.render('produtos/form', { errosValidacao : erros });
+
+      res.format({
+        html : function() {
+          res.status(400).render('produtos/form', { errosValidacao : erros , produto : produto });
+        },
+        json : function() {
+          res.status(400).json(erros);
+        },
+        'text/plain' : function() {
+          res.send(erros);
+        }
+      });
+
       return;
     }
 

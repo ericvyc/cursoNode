@@ -22,8 +22,8 @@ var client = http.request(config, function(res){
 });
 
 var produto = {
-    titulo : 'Produto terminal',
-    descricao : 'produto terminal',
+    titulo : '',
+    descricao : 'produto terminal sem titulo',
     preco : 76
 };
 
