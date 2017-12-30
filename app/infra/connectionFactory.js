@@ -20,6 +20,15 @@ var connection = function () {
     });
   }
 
+  if(!process.env.NODE_ENV == 'production') {
+    return mysql.createConnection({
+      host : 'cursonode.mysql.dbaas.com.br',
+      user : 'cursonode',
+      password : 'motopartes2018',
+      database : 'cursonode'
+    });
+  }
+
 }
 
 module.exports = function() {

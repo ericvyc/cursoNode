@@ -1,5 +1,7 @@
 var app = require('./config/express')();
 
-app.listen(3000, function(){
+var porta = process.env.PORT || 3000;
+
+app.listen(porta, function(){
 	console.log("Server started at - " + new Date());
 });
